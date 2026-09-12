@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cwpvh70acqoi6"]
+
+[ext_resource type="PackedScene" uid="uid://ido4dapxkifi" path="res://entities/player/player_click_move.tscn" id="1_7biu0"]
+[ext_resource type="PackedScene" uid="uid://c46knh25w75g0" path="res://entities/input_components/mouse_clickable.tscn" id="2_00tan"]
+
+[sub_resource type="Gradient" id="Gradient_7biu0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.13653204, 0.396915, 0.068985604, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oc2dr"]
+gradient = SubResource("Gradient_7biu0")
+
+[node name="Gameplay" type="Node2D" unique_id=1397868138]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1877874599]
+position = Vector2(494, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=838386493]
+position = Vector2(64, 11)
+scale = Vector2(19.125, 1.34375)
+texture = SubResource("GradientTexture2D_oc2dr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1585725845]
+position = Vector2(64, 11)
+scale = Vector2(19.125, 1.34375)
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="PlayerClickMove" parent="." unique_id=1294606230 instance=ExtResource("1_7biu0")]
+position = Vector2(406, 154)
+
+[node name="MouseClickable" parent="." unique_id=1127195187 instance=ExtResource("2_00tan")]
+position = Vector2(643, 272)

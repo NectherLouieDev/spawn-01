@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c46knh25w75g0"]
+
+[sub_resource type="Gradient" id="Gradient_ok84w"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.36387956, 0.18674946, 0.007904681, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oc2dr"]
+gradient = SubResource("Gradient_ok84w")
+
+[node name="MouseClickable" type="Area2D" unique_id=1127195187]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530223618]
+texture = SubResource("GradientTexture2D_oc2dr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1392652835]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)

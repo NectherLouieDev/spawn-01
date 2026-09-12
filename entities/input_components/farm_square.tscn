@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b208ueuqlytc8"]
+
+[ext_resource type="Script" uid="uid://b0tg7ju6rwp54" path="res://farm_square.gd" id="1_436iu"]
+
+[sub_resource type="Gradient" id="Gradient_5f7h7"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.7600452, 0, 0.28385603, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oc2dr"]
+gradient = SubResource("Gradient_5f7h7")
+
+[node name="FarmSquare" type="Area2D" unique_id=1402048021]
+script = ExtResource("1_436iu")
+metadata/_custom_type_script = "uid://ctropf7hhw8xp"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1323328765]
+texture = SubResource("GradientTexture2D_oc2dr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=582262521]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
