@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cwpvh70acqoi6"]
 
-[ext_resource type="PackedScene" uid="uid://ido4dapxkifi" path="res://entities/player/player_click_move.tscn" id="1_7biu0"]
-[ext_resource type="PackedScene" uid="uid://c46knh25w75g0" path="res://entities/input_components/mouse_clickable.tscn" id="2_00tan"]
+[ext_resource type="PackedScene" uid="uid://b5pntvoptt6cm" path="res://entities/coin/coin.tscn" id="2_00tan"]
+[ext_resource type="PackedScene" uid="uid://bjm1h6ht8h63d" path="res://entities/player/player_platformer.tscn" id="2_l1v76"]
+[ext_resource type="Script" uid="uid://bf81sd7fapkqw" path="res://scenes/score_label.gd" id="3_l1v76"]
 
 [sub_resource type="Gradient" id="Gradient_7biu0"]
 offsets = PackedFloat32Array(1)
@@ -9,6 +10,9 @@ colors = PackedColorArray(0.13653204, 0.396915, 0.068985604, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_oc2dr"]
 gradient = SubResource("Gradient_7biu0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_oc2dr"]
+font_size = 32
 
 [node name="Gameplay" type="Node2D" unique_id=1397868138]
 
@@ -25,8 +29,26 @@ position = Vector2(64, 11)
 scale = Vector2(19.125, 1.34375)
 polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
 
-[node name="PlayerClickMove" parent="." unique_id=1294606230 instance=ExtResource("1_7biu0")]
-position = Vector2(406, 154)
+[node name="Coin" parent="." unique_id=522161727 instance=ExtResource("2_00tan")]
+position = Vector2(751, 331)
 
-[node name="MouseClickable" parent="." unique_id=1127195187 instance=ExtResource("2_00tan")]
-position = Vector2(643, 272)
+[node name="Coin2" parent="." unique_id=1240394174 instance=ExtResource("2_00tan")]
+position = Vector2(494, 157)
+
+[node name="Coin3" parent="." unique_id=1963726075 instance=ExtResource("2_00tan")]
+position = Vector2(124, 322)
+
+[node name="Coin4" parent="." unique_id=1902601508 instance=ExtResource("2_00tan")]
+position = Vector2(937, 121)
+
+[node name="PlayerPlatformer" parent="." unique_id=1186602271 instance=ExtResource("2_l1v76")]
+position = Vector2(297, 293)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140478787]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=535654506]
+offset_right = 101.0
+offset_bottom = 45.0
+text = "SCORE"
+label_settings = SubResource("LabelSettings_oc2dr")
+script = ExtResource("3_l1v76")

@@ -9,6 +9,8 @@ height = 128.0
 
 [node name="PlayerPlatformer" type="CharacterBody2D" unique_id=1186602271]
 script = ExtResource("1_3msui")
+speed = 500.0
+jump_velocity = -600.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=283600197]
 scale = Vector2(0.51999974, 1)
@@ -16,3 +18,5 @@ texture = ExtResource("2_hmf32")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1169583033]
 shape = SubResource("CapsuleShape2D_oc2dr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1596328359]
