@@ -1,9 +1,12 @@
 extends Node
 
-var score: int = 0
+@export var player_data: PlayerData = preload("res://data/player_data.tres")
 
-func add_score(value: int) -> void:
-	score += value
+func _ready():
+	print("Manager Game States and Behaviour instead of data")
+	player_data.score_updated.connect(on_score_updated)
 
-func reset_score():
-	score = 0
+func on_score_updated(new_score: int) -> void:
+	print("new score: ", new_score)
+	if new_score == 40:
+		print("Victory! Change State to Victory Scene")

@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://b5pntvoptt6cm" path="res://entities/coin/coin.tscn" id="2_00tan"]
 [ext_resource type="PackedScene" uid="uid://bjm1h6ht8h63d" path="res://entities/player/player_platformer.tscn" id="2_l1v76"]
 [ext_resource type="Script" uid="uid://bf81sd7fapkqw" path="res://scenes/score_label.gd" id="3_l1v76"]
+[ext_resource type="Script" uid="uid://bslqelqstmw50" path="res://scenes/score_value.gd" id="4_ct7aa"]
+[ext_resource type="Resource" uid="uid://wkqxxsfx0xkw" path="res://data/player_data.tres" id="5_din8e"]
+[ext_resource type="Texture2D" uid="uid://c6p4qwq84e0ru" path="res://icon.svg" id="5_ocj2s"]
 
 [sub_resource type="Gradient" id="Gradient_7biu0"]
 offsets = PackedFloat32Array(1)
@@ -12,6 +15,9 @@ colors = PackedColorArray(0.13653204, 0.396915, 0.068985604, 1)
 gradient = SubResource("Gradient_7biu0")
 
 [sub_resource type="LabelSettings" id="LabelSettings_oc2dr"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_xucuc"]
 font_size = 32
 
 [node name="Gameplay" type="Node2D" unique_id=1397868138]
@@ -46,9 +52,58 @@ position = Vector2(297, 293)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140478787]
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=535654506]
-offset_right = 101.0
-offset_bottom = 45.0
-text = "SCORE"
+[node name="HUDTop" type="VBoxContainer" parent="CanvasLayer" unique_id=606107099]
+offset_left = 800.0
+offset_top = 261.0
+offset_right = 1151.0
+offset_bottom = 374.0
+
+[node name="ScoreContainer" type="HBoxContainer" parent="CanvasLayer/HUDTop" unique_id=2133906222]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/HUDTop/ScoreContainer" unique_id=535654506]
+layout_mode = 2
+text = "SCORE: "
 label_settings = SubResource("LabelSettings_oc2dr")
 script = ExtResource("3_l1v76")
+
+[node name="ScoreValue" type="Label" parent="CanvasLayer/HUDTop/ScoreContainer" unique_id=212886563]
+layout_mode = 2
+text = "00000000"
+label_settings = SubResource("LabelSettings_oc2dr")
+script = ExtResource("4_ct7aa")
+player_data = ExtResource("5_din8e")
+
+[node name="LivesContainer" type="HBoxContainer" parent="CanvasLayer/HUDTop" unique_id=1990579282]
+layout_mode = 2
+
+[node name="LivesTitle" type="Label" parent="CanvasLayer/HUDTop/LivesContainer" unique_id=730467633]
+layout_mode = 2
+text = "LIVES:"
+label_settings = SubResource("LabelSettings_xucuc")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/HUDTop/LivesContainer" unique_id=299018193]
+custom_minimum_size = Vector2(256, 64)
+custom_maximum_size = Vector2(256, 64)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(16, 16)
+columns = 3
+
+[node name="Life_01" type="TextureRect" parent="CanvasLayer/HUDTop/LivesContainer/GridContainer" unique_id=1074888025]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_ocj2s")
+
+[node name="Life_02" type="TextureRect" parent="CanvasLayer/HUDTop/LivesContainer/GridContainer" unique_id=128166709]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_ocj2s")
+
+[node name="Life_03" type="TextureRect" parent="CanvasLayer/HUDTop/LivesContainer/GridContainer" unique_id=858728833]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_ocj2s")
