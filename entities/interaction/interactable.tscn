@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://binq7i0gh0p1m"]
+
+[ext_resource type="Script" uid="uid://cmd3ekskyihgx" path="res://entities/interaction/interactable.gd" id="1_jcy0q"]
+[ext_resource type="Texture2D" uid="uid://c6p4qwq84e0ru" path="res://icon.svg" id="1_wh154"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oc2dr"]
+size = Vector2(185, 182)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oc2dr"]
+radius = 63.1981
+
+[sub_resource type="LabelSettings" id="LabelSettings_xucuc"]
+font_size = 32
+
+[node name="Interactable" type="Area2D" unique_id=1339646128]
+script = ExtResource("1_jcy0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576763881]
+scale = Vector2(2, 2)
+texture = ExtResource("1_wh154")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1990164386]
+shape = SubResource("RectangleShape2D_oc2dr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1418609919]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1458072965]
+shape = SubResource("CircleShape2D_oc2dr")
+
+[node name="InteractUI" type="CenterContainer" parent="." unique_id=2007947125]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="InteractUI" unique_id=299770846]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(0.085983776, 0.08598376, 0.08598376, 1)
+
+[node name="Label" type="Label" parent="InteractUI" unique_id=1010539116]
+layout_mode = 2
+text = "E"
+label_settings = SubResource("LabelSettings_xucuc")

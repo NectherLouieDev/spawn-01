@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cyaa3s7ww0feo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xucuc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ocj2s"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[node name="LivesContainer" type="HBoxContainer" unique_id=1358307272]
+
+[node name="LivesTitle" type="Label" parent="." unique_id=1751442875]
+layout_mode = 2
+text = "LIVES "
+label_settings = SubResource("LabelSettings_xucuc")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=883966045]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
+
+[node name="Life_01" type="TextureRect" parent="GridContainer" unique_id=1999830240]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = SubResource("CompressedTexture2D_ocj2s")
+
+[node name="Life_02" type="TextureRect" parent="GridContainer" unique_id=1281577436]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = SubResource("CompressedTexture2D_ocj2s")
+
+[node name="Life_03" type="TextureRect" parent="GridContainer" unique_id=408699901]
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = SubResource("CompressedTexture2D_ocj2s")

@@ -8,6 +8,6 @@ func _ready():
 
 func _on_body_entered(body):
 	# add a score if the body is player only
-	if body is PlayerPlatformer:
+	if body is PlayerPlatformer or body is PlayerTopDown:
 		player_data.add_score(10)
 		queue_free()

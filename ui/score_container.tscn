@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://qo3ylj4pc18t"]
+
+[ext_resource type="Script" uid="uid://bf81sd7fapkqw" path="res://ui/score_label.gd" id="1_bpcvg"]
+[ext_resource type="Script" uid="uid://bslqelqstmw50" path="res://ui/score_value.gd" id="2_guci1"]
+[ext_resource type="Resource" uid="uid://wkqxxsfx0xkw" path="res://data/player_data.tres" id="3_4ocbf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4bh5q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oc2dr"]
+font_size = 32
+
+[node name="ScoreContainer" type="HBoxContainer" unique_id=1073805165]
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=877283828]
+layout_mode = 2
+text = "SCORE: "
+label_settings = SubResource("LabelSettings_4bh5q")
+script = ExtResource("1_bpcvg")
+
+[node name="ScoreValue" type="Label" parent="." unique_id=505126441]
+layout_mode = 2
+text = "00000000"
+label_settings = SubResource("LabelSettings_oc2dr")
+script = ExtResource("2_guci1")
+player_data = ExtResource("3_4ocbf")

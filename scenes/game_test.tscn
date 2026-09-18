@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ck1mri5e33ndf"]
+
+[ext_resource type="Script" uid="uid://by22ihi65cwel" path="res://scenes/scripts/scene_title_menu.gd" id="1_2rr2g"]
+[ext_resource type="Script" uid="uid://cggbvpofb5sbc" path="res://scenes/scripts/scene_state_machine.gd" id="1_ca7ef"]
+[ext_resource type="PackedScene" uid="uid://52upvslvo54d" path="res://scenes/title_menu.tscn" id="3_ajbu4"]
+[ext_resource type="Script" uid="uid://cofan04ispg2" path="res://scenes/scripts/scene_gameplay.gd" id="4_8c5ji"]
+[ext_resource type="PackedScene" uid="uid://cwpvh70acqoi6" path="res://scenes/gameplay.tscn" id="5_gjpke"]
+
+[node name="GameTest" type="Node2D" unique_id=354921540]
+
+[node name="SceneStateMachine" type="Node" parent="." unique_id=765245932 node_paths=PackedStringArray("root_scene", "current_state")]
+script = ExtResource("1_ca7ef")
+root_scene = NodePath("..")
+current_state = NodePath("SceneTitleMenu")
+
+[node name="SceneTitleMenu" type="Node" parent="SceneStateMachine" unique_id=649849462]
+script = ExtResource("1_2rr2g")
+scene_resource = ExtResource("3_ajbu4")
+
+[node name="SceneGameplay" type="Node" parent="SceneStateMachine" unique_id=2070487943]
+script = ExtResource("4_8c5ji")
+scene_resource = ExtResource("5_gjpke")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6p4qwq84e0ru" path="res://icon.svg" id="1_kvqy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oc2dr"]
-size = Vector2(132, 134)
+size = Vector2(120, 119)
 
 [node name="PlayerTopDown" type="CharacterBody2D" unique_id=2118966409]
 script = ExtResource("1_cd0bl")
@@ -13,5 +13,5 @@ script = ExtResource("1_cd0bl")
 texture = ExtResource("1_kvqy3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1261137996]
-position = Vector2(0, 3)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_oc2dr")

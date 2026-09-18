@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ghu628j7pd1w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_din8e"]
+
+[sub_resource type="Gradient" id="Gradient_din8e"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vncpo"]
+gradient = SubResource("Gradient_din8e")
+
+[sub_resource type="Gradient" id="Gradient_4bh5q"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tvlj7"]
+gradient = SubResource("Gradient_4bh5q")
+
+[node name="HealthBar" type="HBoxContainer" unique_id=1331220562]
+
+[node name="BarTitle" type="Label" parent="." unique_id=1648687876]
+layout_mode = 2
+text = "BAR "
+label_settings = SubResource("LabelSettings_din8e")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1398183112]
+custom_minimum_size = Vector2(256, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 25.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_vncpo")
+texture_progress = SubResource("GradientTexture2D_tvlj7")
+tint_under = Color(0, 0, 0, 0.24313726)
+tint_progress = Color(0.2509804, 0.62352943, 0.18039216, 1)

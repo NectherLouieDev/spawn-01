@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjm1h6ht8h63d"]
 
-[ext_resource type="Script" uid="uid://bfk6x6p4sqasj" path="res://player_platformer.gd" id="1_3msui"]
+[ext_resource type="Script" uid="uid://bfk6x6p4sqasj" path="res://entities/player/player_platformer.gd" id="1_3msui"]
 [ext_resource type="Texture2D" uid="uid://c6p4qwq84e0ru" path="res://icon.svg" id="2_hmf32"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oc2dr"]

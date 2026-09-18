@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bug2qy7dom8o0"]
+
+[ext_resource type="PackedScene" uid="uid://qo3ylj4pc18t" path="res://ui/score_container.tscn" id="1_wdg1d"]
+[ext_resource type="PackedScene" uid="uid://cyaa3s7ww0feo" path="res://ui/lives_container.tscn" id="2_7rsvh"]
+[ext_resource type="PackedScene" uid="uid://ghu628j7pd1w" path="res://ui/health_bar.tscn" id="3_m7ji6"]
+
+[node name="HUDTop" type="VBoxContainer" unique_id=882538276]
+offset_right = 352.0
+offset_bottom = 113.0
+
+[node name="ScoreContainer" parent="." unique_id=1073805165 instance=ExtResource("1_wdg1d")]
+layout_mode = 2
+
+[node name="LivesContainer" parent="." unique_id=1358307272 instance=ExtResource("2_7rsvh")]
+layout_mode = 2
+
+[node name="HealthBar" parent="." unique_id=1331220562 instance=ExtResource("3_m7ji6")]
+layout_mode = 2
