@@ -2,6 +2,7 @@ class_name SceneGameplay
 extends BaseState
 
 var _scene_instance: Node2D
+var _player: PlayerTopDown
 
 func enter() -> void:
 	print("SceneGameplay enter()")
@@ -10,10 +11,6 @@ func enter() -> void:
 	
 	if state_machine is SceneStateMachine and _scene_instance:
 		state_machine.add_scene(_scene_instance)
-
-#func update(delta: float) -> void:
-	#if Input.is_action_just_pressed("jump"):
-		#transition.emit("SceneGameplay")
 
 func exit() -> void:
 	print("SceneTitleMenu exit()")

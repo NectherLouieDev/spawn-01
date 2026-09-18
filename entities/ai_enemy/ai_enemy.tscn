@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://blbb4bav433to"]
+
+[ext_resource type="Texture2D" uid="uid://c6p4qwq84e0ru" path="res://icon.svg" id="1_m0brr"]
+[ext_resource type="Script" uid="uid://bafi5qrq1gale" path="res://entities/ai_enemy/enemy_state_machine.gd" id="2_mbht3"]
+[ext_resource type="Script" uid="uid://d16mx4kquyhlh" path="res://entities/ai_enemy/enemy_idle_state.gd" id="3_y0bw8"]
+[ext_resource type="Script" uid="uid://dqiw4vxnp6ub6" path="res://entities/ai_enemy/enemy_chase_state.gd" id="4_1g40e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1g40e"]
+radius = 46.173584
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xucuc"]
+radius = 320.03125
+
+[node name="AIEnemy" type="CharacterBody2D" unique_id=496545096]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554390277]
+texture = ExtResource("1_m0brr")
+
+[node name="AICollisionShape" type="CollisionShape2D" parent="." unique_id=1846476690]
+shape = SubResource("CircleShape2D_1g40e")
+
+[node name="ChaseTriggerArea" type="Area2D" parent="." unique_id=2115856633]
+collision_layer = 0
+
+[node name="ChaseTriggerShape" type="CollisionShape2D" parent="ChaseTriggerArea" unique_id=364613726]
+shape = SubResource("CircleShape2D_xucuc")
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=1709133516 node_paths=PackedStringArray("current_state")]
+script = ExtResource("2_mbht3")
+current_state = NodePath("EnemyIdleState")
+
+[node name="EnemyIdleState" type="Node" parent="EnemyStateMachine" unique_id=142346473]
+script = ExtResource("3_y0bw8")
+
+[node name="EnemyChaseState" type="Node" parent="EnemyStateMachine" unique_id=463739768]
+script = ExtResource("4_1g40e")

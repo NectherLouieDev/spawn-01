@@ -26,6 +26,10 @@ SceneManager="*uid://bsrx2jk2f0ali"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Player=""
+
 [input]
 
 move_left={

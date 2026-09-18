@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bug2qy7dom8o0" path="res://ui/hud_top.tscn" id="3_l1v76"]
 [ext_resource type="PackedScene" uid="uid://binq7i0gh0p1m" path="res://entities/interaction/interactable.tscn" id="4_ct7aa"]
 [ext_resource type="PackedScene" uid="uid://ndt8ivsqg6u" path="res://entities/player/player_top_down.tscn" id="4_ocj2s"]
+[ext_resource type="PackedScene" uid="uid://blbb4bav433to" path="res://entities/ai_enemy/ai_enemy.tscn" id="5_ocj2s"]
 
 [sub_resource type="Gradient" id="Gradient_7biu0"]
 offsets = PackedFloat32Array(1)
@@ -28,7 +29,7 @@ scale = Vector2(19.125, 1.34375)
 polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
 
 [node name="Coin" parent="." unique_id=522161727 instance=ExtResource("2_00tan")]
-position = Vector2(751, 331)
+position = Vector2(431, 161)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140478787]
 
@@ -39,3 +40,6 @@ position = Vector2(512, 371)
 
 [node name="PlayerTopDown" parent="." unique_id=2118966409 instance=ExtResource("4_ocj2s")]
 position = Vector2(182, 371)
+
+[node name="AIEnemy" parent="." unique_id=496545096 instance=ExtResource("5_ocj2s")]
+position = Vector2(1257, 327)
