@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bug2qy7dom8o0" path="res://ui/hud_top.tscn" id="3_l1v76"]
 [ext_resource type="PackedScene" uid="uid://binq7i0gh0p1m" path="res://entities/interaction/interactable.tscn" id="4_ct7aa"]
 [ext_resource type="PackedScene" uid="uid://ndt8ivsqg6u" path="res://entities/player/player_top_down.tscn" id="4_ocj2s"]
+[ext_resource type="PackedScene" uid="uid://blbb4bav433to" path="res://entities/ai_enemy/ai_enemy.tscn" id="5_ocj2s"]
 
 [sub_resource type="Gradient" id="Gradient_7biu0"]
 offsets = PackedFloat32Array(1)
@@ -53,3 +54,6 @@ position = Vector2(182, 371)
 
 [node name="Interactable" parent="." unique_id=1339646128 instance=ExtResource("4_ct7aa")]
 position = Vector2(1066, 359)
+
+[node name="AIEnemy" parent="." unique_id=496545096 instance=ExtResource("5_ocj2s")]
+position = Vector2(1594, 214)

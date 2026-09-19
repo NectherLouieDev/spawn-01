@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dfkq5u3xthrhg" path="res://entities/player/sprites/player_05.png" id="5_lykbu"]
 [ext_resource type="Script" uid="uid://bkeadmyumkjd6" path="res://entities/player/anim_idle_state.gd" id="6_ks1xq"]
 [ext_resource type="Script" uid="uid://bcogudp5ya8lu" path="res://entities/player/anim_walk_down.gd" id="7_lykbu"]
+[ext_resource type="Script" uid="uid://20agx0qnd531" path="res://core/random_test.gd" id="8_4wh6m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xucuc"]
 animations = [{
@@ -57,3 +58,6 @@ script = ExtResource("6_ks1xq")
 
 [node name="AnimWalkDownState" type="Node" parent="AnimationStateMachine" unique_id=301823010]
 script = ExtResource("7_lykbu")
+
+[node name="RandomTest" type="Node" parent="." unique_id=1868213513]
+script = ExtResource("8_4wh6m")

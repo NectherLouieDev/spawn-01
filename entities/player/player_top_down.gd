@@ -22,7 +22,7 @@ func _physics_process(delta) -> void:
 	var input_direction: Vector2 = Input.get_vector(
 		"move_left", "move_right", "move_up","move_down")
 	
-	print(input_direction)
+	#print(input_direction)
 	
 	if input_direction.y >= 1:
 		state_machine.current_state.transition.emit("AnimWalkDownState")
