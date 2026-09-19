@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bf81sd7fapkqw" path="res://ui/score_label.gd" id="1_bpcvg"]
 [ext_resource type="Script" uid="uid://bslqelqstmw50" path="res://ui/score_value.gd" id="2_guci1"]
-[ext_resource type="Resource" uid="uid://wkqxxsfx0xkw" path="res://data/player_data.tres" id="3_4ocbf"]
+[ext_resource type="Resource" uid="uid://c3pit03hg6jin" path="res://day2/res_game_data.tres" id="3_bpcvg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4bh5q"]
 
@@ -22,4 +22,4 @@ layout_mode = 2
 text = "00000000"
 label_settings = SubResource("LabelSettings_oc2dr")
 script = ExtResource("2_guci1")
-player_data = ExtResource("3_4ocbf")
+game_data = ExtResource("3_bpcvg")

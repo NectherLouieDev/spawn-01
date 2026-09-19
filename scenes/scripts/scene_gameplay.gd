@@ -12,6 +12,10 @@ func enter() -> void:
 	if state_machine is SceneStateMachine and _scene_instance:
 		state_machine.add_scene(_scene_instance)
 
+func update(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		transition.emit("SceneTitleMenu")
+
 func exit() -> void:
 	print("SceneTitleMenu exit()")
 	

@@ -1,7 +1,34 @@
 [gd_scene format=3 uid="uid://ndt8ivsqg6u"]
 
 [ext_resource type="Script" uid="uid://bct5m0vg03881" path="res://entities/player/player_top_down.gd" id="1_cd0bl"]
-[ext_resource type="Texture2D" uid="uid://c6p4qwq84e0ru" path="res://icon.svg" id="1_kvqy3"]
+[ext_resource type="Texture2D" uid="uid://ca5y4jiq8rc27" path="res://entities/player/sprites/player_03.png" id="3_08bh2"]
+[ext_resource type="Texture2D" uid="uid://dqbnx0tfn457i" path="res://entities/player/sprites/player_04.png" id="4_ks1xq"]
+[ext_resource type="Script" uid="uid://47h8k0k6081u" path="res://entities/player/animation_state_machine.gd" id="5_08bh2"]
+[ext_resource type="Texture2D" uid="uid://dfkq5u3xthrhg" path="res://entities/player/sprites/player_05.png" id="5_lykbu"]
+[ext_resource type="Script" uid="uid://bkeadmyumkjd6" path="res://entities/player/anim_idle_state.gd" id="6_ks1xq"]
+[ext_resource type="Script" uid="uid://bcogudp5ya8lu" path="res://entities/player/anim_walk_down.gd" id="7_lykbu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xucuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_08bh2")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ks1xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lykbu")
+}],
+"loop": 1,
+"name": &"WalkDown",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oc2dr"]
 size = Vector2(120, 119)
@@ -9,8 +36,10 @@ size = Vector2(120, 119)
 [node name="PlayerTopDown" type="CharacterBody2D" unique_id=2118966409 groups=["Player"]]
 script = ExtResource("1_cd0bl")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=650752729]
-texture = ExtResource("1_kvqy3")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1999603741]
+sprite_frames = SubResource("SpriteFrames_xucuc")
+animation = &"WalkDown"
+frame_progress = 0.52284235
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1261137996]
 position = Vector2(0, 0.5)
@@ -18,3 +47,13 @@ shape = SubResource("RectangleShape2D_oc2dr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1823033098]
 position_smoothing_enabled = true
+
+[node name="AnimationStateMachine" type="Node" parent="." unique_id=2142195939 node_paths=PackedStringArray("current_state")]
+script = ExtResource("5_08bh2")
+current_state = NodePath("AnimIdleState")
+
+[node name="AnimIdleState" type="Node" parent="AnimationStateMachine" unique_id=527122576]
+script = ExtResource("6_ks1xq")
+
+[node name="AnimWalkDownState" type="Node" parent="AnimationStateMachine" unique_id=301823010]
+script = ExtResource("7_lykbu")

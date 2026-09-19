@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bug2qy7dom8o0" path="res://ui/hud_top.tscn" id="3_l1v76"]
 [ext_resource type="PackedScene" uid="uid://binq7i0gh0p1m" path="res://entities/interaction/interactable.tscn" id="4_ct7aa"]
 [ext_resource type="PackedScene" uid="uid://ndt8ivsqg6u" path="res://entities/player/player_top_down.tscn" id="4_ocj2s"]
-[ext_resource type="PackedScene" uid="uid://blbb4bav433to" path="res://entities/ai_enemy/ai_enemy.tscn" id="5_ocj2s"]
 
 [sub_resource type="Gradient" id="Gradient_7biu0"]
 offsets = PackedFloat32Array(1)
@@ -14,6 +13,7 @@ colors = PackedColorArray(0.13653204, 0.396915, 0.068985604, 1)
 gradient = SubResource("Gradient_7biu0")
 
 [node name="Gameplay" type="Node2D" unique_id=1397868138]
+metadata/_edit_horizontal_guides_ = [-143.0]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1877874599]
 position = Vector2(494, 500)
@@ -30,16 +30,26 @@ polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
 
 [node name="Coin" parent="." unique_id=522161727 instance=ExtResource("2_00tan")]
 position = Vector2(431, 161)
+coin_value = 20
+
+[node name="Coin4" parent="." unique_id=1881353631 instance=ExtResource("2_00tan")]
+position = Vector2(1255, 192)
+coin_value = 20
+
+[node name="Coin2" parent="." unique_id=1282860428 instance=ExtResource("2_00tan")]
+position = Vector2(634, 347)
+coin_value = 20
+
+[node name="Coin3" parent="." unique_id=514922703 instance=ExtResource("2_00tan")]
+position = Vector2(885, 157)
+coin_value = 20
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140478787]
 
 [node name="HUDTop" parent="CanvasLayer" unique_id=882538276 instance=ExtResource("3_l1v76")]
 
-[node name="Interactable" parent="." unique_id=1339646128 instance=ExtResource("4_ct7aa")]
-position = Vector2(512, 371)
-
 [node name="PlayerTopDown" parent="." unique_id=2118966409 instance=ExtResource("4_ocj2s")]
 position = Vector2(182, 371)
 
-[node name="AIEnemy" parent="." unique_id=496545096 instance=ExtResource("5_ocj2s")]
-position = Vector2(1257, 327)
+[node name="Interactable" parent="." unique_id=1339646128 instance=ExtResource("4_ct7aa")]
+position = Vector2(1066, 359)
