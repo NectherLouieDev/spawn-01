@@ -24,8 +24,14 @@ func _physics_process(delta) -> void:
 	
 	#print(input_direction)
 	
-	if input_direction.y >= 1:
+	if input_direction.y > 0: # down
 		state_machine.current_state.transition.emit("AnimWalkDownState")
+	elif input_direction.y < 0: # up
+		state_machine.current_state.transition.emit("AnimWalkUpState")
+	elif input_direction.x > 0: # right
+		state_machine.current_state.transition.emit("AnimWalkRightState")
+	elif input_direction.x < 0: # left
+		state_machine.current_state.transition.emit("AnimWalkLeftState")
 	else:
 		state_machine.current_state.transition.emit("AnimIdleState")
 	velocity = input_direction * speed

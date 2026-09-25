@@ -4,10 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://ca5y4jiq8rc27" path="res://entities/player/sprites/player_03.png" id="3_08bh2"]
 [ext_resource type="Texture2D" uid="uid://dqbnx0tfn457i" path="res://entities/player/sprites/player_04.png" id="4_ks1xq"]
 [ext_resource type="Script" uid="uid://47h8k0k6081u" path="res://entities/player/animation_state_machine.gd" id="5_08bh2"]
+[ext_resource type="Texture2D" uid="uid://cq4ixhepr0mdp" path="res://entities/player/sprites/player_19.png" id="5_igjlh"]
 [ext_resource type="Texture2D" uid="uid://dfkq5u3xthrhg" path="res://entities/player/sprites/player_05.png" id="5_lykbu"]
+[ext_resource type="Texture2D" uid="uid://bu0ofimjml8mu" path="res://entities/player/sprites/player_18.png" id="5_y51ln"]
+[ext_resource type="Texture2D" uid="uid://ctweru0hy01j" path="res://entities/player/sprites/player_20.png" id="6_h6ced"]
 [ext_resource type="Script" uid="uid://bkeadmyumkjd6" path="res://entities/player/anim_idle_state.gd" id="6_ks1xq"]
+[ext_resource type="Texture2D" uid="uid://c1x2x1fu2wbp1" path="res://entities/player/sprites/player_15.png" id="7_h6ced"]
+[ext_resource type="Texture2D" uid="uid://b5umw7ewja4k7" path="res://entities/player/sprites/player_16.png" id="7_igjlh"]
 [ext_resource type="Script" uid="uid://bcogudp5ya8lu" path="res://entities/player/anim_walk_down.gd" id="7_lykbu"]
+[ext_resource type="Script" uid="uid://57b3y3pdnl74" path="res://entities/player/anim_walk_up_state.gd" id="8_0s1ch"]
 [ext_resource type="Script" uid="uid://20agx0qnd531" path="res://core/random_test.gd" id="8_4wh6m"]
+[ext_resource type="Texture2D" uid="uid://blvfd772mxsbh" path="res://entities/player/sprites/player_17.png" id="8_h6ced"]
+[ext_resource type="Script" uid="uid://c0bgoiwc8bsq3" path="res://entities/player/anim_walk_left_state.gd" id="9_02ujj"]
+[ext_resource type="Script" uid="uid://cnhrnxldx3xjy" path="res://entities/player/anim_walk_right_state.gd" id="10_a6lny"]
+[ext_resource type="Texture2D" uid="uid://pbnqgpms6lvp" path="res://entities/player/sprites/player_07.png" id="11_y51ln"]
+[ext_resource type="Texture2D" uid="uid://cotm4eiisqfbw" path="res://entities/player/sprites/player_08.png" id="12_iooyg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xucuc"]
 animations = [{
@@ -28,7 +39,52 @@ animations = [{
 }],
 "loop": 1,
 "name": &"WalkDown",
-"speed": 5.0
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_y51ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_igjlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y51ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h6ced")
+}],
+"loop": 1,
+"name": &"WalkLeft",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_h6ced")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_igjlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h6ced")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h6ced")
+}],
+"loop": 1,
+"name": &"WalkRight",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_y51ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_iooyg")
+}],
+"loop": 1,
+"name": &"WalkUp",
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oc2dr"]
@@ -39,8 +95,7 @@ script = ExtResource("1_cd0bl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1999603741]
 sprite_frames = SubResource("SpriteFrames_xucuc")
-animation = &"WalkDown"
-frame_progress = 0.52284235
+animation = &"WalkUp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1261137996]
 position = Vector2(0, 0.5)
@@ -58,6 +113,15 @@ script = ExtResource("6_ks1xq")
 
 [node name="AnimWalkDownState" type="Node" parent="AnimationStateMachine" unique_id=301823010]
 script = ExtResource("7_lykbu")
+
+[node name="AnimWalkUpState" type="Node" parent="AnimationStateMachine" unique_id=2022719723]
+script = ExtResource("8_0s1ch")
+
+[node name="AnimWalkLeftState" type="Node" parent="AnimationStateMachine" unique_id=2051298571]
+script = ExtResource("9_02ujj")
+
+[node name="AnimWalkRightState" type="Node" parent="AnimationStateMachine" unique_id=709208456]
+script = ExtResource("10_a6lny")
 
 [node name="RandomTest" type="Node" parent="." unique_id=1868213513]
 script = ExtResource("8_4wh6m")

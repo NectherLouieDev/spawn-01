@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://22kxortjf27f"]
+
+[ext_resource type="Texture2D" uid="uid://dilj2tt2627k4" path="res://day3/tilemap.png" id="1_6gmcs"]
+[ext_resource type="PackedScene" uid="uid://ndt8ivsqg6u" path="res://entities/player/player_top_down.tscn" id="2_s4llb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4llb"]
+texture = ExtResource("1_6gmcs")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gg527"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_s4llb")
+
+[sub_resource type="GDScript" id="GDScript_oc2dr"]
+resource_name = "terrain_layer"
+script/source = "extends TileMapLayer
+
+# Noise configuration
+var noise := FastNoiseLite.new()
+
+# Map dimensions in tiles
+@export var map_width: int = 100
+@export var map_height: int = 100
+
+# Source ID (index of the atlas in the TileSet)
+const SOURCE_ID := 0
+
+func _ready() -> void:
+	noise.seed = 12345
+	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
+	noise.frequency = 0.025
+	noise.fractal_type = FastNoiseLite.FRACTAL_FBM
+	noise.fractal_octaves = 4
+	generate_map()
+
+func generate_map() -> void:
+	for x in range(map_width):
+		for y in range(map_height):
+			var value: float = noise.get_noise_2d(float(x), float(y))
+			var atlas_coords: Vector2i = _noise_to_tile(value)
+			set_cell(Vector2i(x, y), SOURCE_ID, atlas_coords)
+
+func _noise_to_tile(value: float) -> Vector2i:
+	# Map noise value (-1 to 1) to our tile atlas coordinates
+	# -1.0 → black
+	# 0.0 → gray
+	# +1.0 → white
+	# dark = low elevation (deep ocean), 
+	# light = high elevation (mountains). 
+	# This is the classic heightmap look.
+	
+	if value < -0.3:
+		return Vector2i(0, 0)  # Deep Blue (Deep Water)
+	elif value < -0.1:
+		return Vector2i(1, 0)  # Light Blue (Shallow Water)
+	elif value < 0.3:
+		return Vector2i(2, 0)  # Green (Grass)
+	else:
+		return Vector2i(3, 0)  # Dark Green (Forest)
+"
+
+[node name="ProcGenTest" type="Node2D" unique_id=637779541]
+
+[node name="TerrainLayer" type="TileMapLayer" parent="." unique_id=238803541]
+position = Vector2(-389, -250)
+scale = Vector2(0.25, 0.25)
+tile_set = SubResource("TileSet_gg527")
+script = SubResource("GDScript_oc2dr")
+
+[node name="PlayerTopDown" parent="." unique_id=2118966409 instance=ExtResource("2_s4llb")]
+position = Vector2(4, 2)
